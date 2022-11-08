@@ -1,0 +1,11 @@
+Comando para rodar o servidor:
+
+- npm run dev
+
+- 37 minutos
+
+https://www.alura.com.br/imersao-react/aula01-web-componentes-deploy
+
+O "Map" converte de uma coisa para outra coisa
+Converter de uma lista para componentes react
+Vai ser Map o tempo todo
