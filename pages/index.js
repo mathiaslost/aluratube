@@ -39,13 +39,14 @@ const StyledHeader = styled.div`
     gap: 16px;
   }
   .banner {
-    width: 100%;
     height: 500px;
-    border: 5px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
   .banner img {
     flex-shrink: 0;
-    width: 100%;
     min-width: 100%;
     min-height: 100%;
   }
@@ -55,7 +56,7 @@ function Header() {
     <StyledHeader>
       <section>
         <div className="banner">
-          <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+          <img src={config.banner} />
         </div>
       </section>
       <section className="user-info">
