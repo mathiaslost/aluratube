@@ -31,7 +31,7 @@ export default HomePage
 
 const StyledBanner = styled.section`
   .banner {
-    height: 400px;
+    height: 230px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,12 +46,12 @@ const StyledBanner = styled.section`
   }
   @media (min-width: 600px) {
     .banner {
-      height: 400px;
+      height: 230px;
     }
   }
   @media (max-width: 600px) {
     .banner {
-      height: 200px;
+      height: 230px;
     }
     .banner img {
       width: 100vw;
