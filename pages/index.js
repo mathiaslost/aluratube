@@ -45,14 +45,8 @@ const StyledBanner = styled.section`
     min-width: 100vw;
   }
   @media (min-width: 600px) {
-    .banner {
-      height: 230px;
-    }
   }
   @media (max-width: 600px) {
-    .banner {
-      height: 230px;
-    }
     .banner img {
       width: 100vw;
     }
