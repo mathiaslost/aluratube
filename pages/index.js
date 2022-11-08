@@ -34,7 +34,7 @@ const StyledHeader = styled.div`
   .user-info {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     padding: 16px 32px;
     gap: 16px;
   }
@@ -44,11 +44,29 @@ const StyledHeader = styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    flex-direction: column;
   }
   .banner img {
+    display: flex;
     flex-shrink: 0;
-    min-width: 100%;
     min-height: 100%;
+    min-width: 100vw;
+  }
+  @media (min-width: 600px) {
+    .banner img {
+    }
+  }
+  @media (max-width: 600px) {
+    .banner img {
+      height: 50%;
+    }
+  }
+  section {
+    width: 100vw;
+    overflow: hidden;
+    div {
+      width: calc(100vw);
+    }
   }
 `;
 function Header() {
