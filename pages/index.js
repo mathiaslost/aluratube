@@ -39,7 +39,7 @@ const StyledHeader = styled.div`
     gap: 16px;
   }
   .banner {
-    height: 500px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,12 +53,16 @@ const StyledHeader = styled.div`
     min-width: 100vw;
   }
   @media (min-width: 600px) {
-    .banner img {
+    .banner {
+      height: 400px;
     }
   }
   @media (max-width: 600px) {
+    .banner {
+      height: 200px;
+    }
     .banner img {
-      height: 50%;
+      width: 100vw;
     }
   }
   section {
