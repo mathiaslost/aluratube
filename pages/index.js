@@ -1,3 +1,4 @@
+import React from "react";
 import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
@@ -8,22 +9,32 @@ function HomePage() {
   const estilosDaHomePage = {
     // backgroundColor: "red"
   };
+  const [valorDaBusca, setValorDoFiltro] = React.useState("");
 
   return (
     <>
       <CSSReset />
       <div style={estilosDaHomePage}>
-      <Menu />
-      <Header />
-      <Timeline playlists={config.playlists} />
-      <Favourites params={config.favourites} />
-    </div>    
+        {/* Prop Drilling */}
+        <Menu valorDoFiltro={valorDaBusca} setValorDoFiltro={setValorDoFiltro} />
+        <Header />
+        <Timeline searchValue={valorDaBusca} playlists={config.playlists}>
+          Conteúdo
+        </Timeline>
+        <Favourites params={config.favourites} />
+      </div>
     </>
   );
 }
 
 export default HomePage
 
+const StyledBanner = styled.div`
+  background-color: blue;
+  background-image: url(${({bg}) => bg});
+  /* background-image: url(${config.banner}); */
+  height: 230px;
+`;
 const StyledHeader = styled.div`
   .profile-picture {
     width: 80px;
@@ -75,11 +86,12 @@ const StyledHeader = styled.div`
 function Header() {
   return (
     <StyledHeader>
-      <section>
+      <StyledBanner bg={config.banner} />
+      {/* <section>
         <div className="banner">
           <img src={config.banner} />
         </div>
-      </section>
+      </section> */}
       <section className="user-info">
         <img className="profile-picture" src={`https://github.com/${config.github}.png`} />
         <div>
@@ -95,7 +107,7 @@ function Header() {
   )
 }
 
-function Timeline(propriedades) {
+function Timeline({ searchValue, ...propriedades }) {
   const playlistNames = Object.keys(propriedades.playlists);
   // Statement
   // Retorno por expressão
@@ -103,72 +115,78 @@ function Timeline(propriedades) {
     <StyledTimeline>
       {playlistNames.map((playlistName) => {
         const videos = propriedades.playlists[playlistName];
-          return (
-            <section>
-              <h2>{playlistName}</h2>
-              <div>
-                {videos.map((video) => {
-                    return (
-                        <a href={video.url}>
-                            <img src={video.thumb} />
-                            <span>
-                                {video.title}
-                            </span>
-                        </a>
-                    )
+        return (
+          <section key={playlistName}>
+            <h2>{playlistName}</h2>
+            <div>
+              {videos
+                .filter((video) => {
+                  const titleNormalized = video.title.toLowerCase();
+                  const searchValueNormalized = searchValue.toLowerCase();
+                  return titleNormalized.includes(searchValueNormalized);
+                })
+                .map((video) => {
+                  return (
+                    <a key={video.url} href={video.url}>
+                      <img src={video.thumb} />
+                      <span>
+                        {video.title}
+                      </span>
+                    </a>
+                  )
                 })}
-              </div>
-            </section>
-          )
+            </div>
+          </section>
+        )
       })}
     </StyledTimeline>
   )
 }
 
+const StyledFavourites = styled.div`
+  .user-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 15px;
+  }
+  .fav-info {
+    display: flex;
+  }
+  section {
+    padding: 16px 32px;
+  }
+  span {
+    display: flex;
+    justify-content: center;
+  }
+  .float-container {
+    float: left;
+    overflow: hidden;
+    // display: grid;
+    // grid-auto-flow: column;
+    // grid-auto-columns: minmax(200px,1fr);
+    // overflow-x: scroll;
+    // scroll-snap-type: x mandatory;
+  }
+  a {
+    text-decoration: none;
+    /* overflow-x: scroll; */
+  }
+`
 function Favourites(props) {
-  const StyledFavourites = styled.div`
-    .user-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      padding: 15px;
-    }
-    .fav-info {
-      display: flex;
-    }
-    section {
-      padding: 16px 32px;
-    }
-    span {
-      display: flex;
-      justify-content: center;
-    }
-    .float-container {
-      float: left;
-      overflow: hidden;
-      // display: grid;
-      // grid-auto-flow: column;
-      // grid-auto-columns: minmax(200px,1fr);
-      // overflow-x: scroll;
-      // scroll-snap-type: x mandatory;
-    }
-    a {
-      text-decoration: none;
-      overflow-x: scroll;
-    }
-  `
   const favs = Object.keys(props.params);
 
   return (
     <StyledFavourites>
-      <section>
+      <section key={props}>
         <h2>AluraTubes Favoritos</h2>
         <div>
           {favs.map((fav) => {
             const user = props.params[fav];
             return (
-              <div className="float-container">
-                <a href={user.url}>
+              <div key={fav} className="float-container">
+                <a key={user.url} href={user.url}>
                   <img className="user-pic" src={`https://github.com/${user.gitpic}.png`} />
                   <span>{user.name}</span>
                 </a>

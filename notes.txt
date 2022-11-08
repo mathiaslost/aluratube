@@ -9,3 +9,7 @@ https://www.alura.com.br/imersao-react/aula01-web-componentes-deploy
 O "Map" converte de uma coisa para outra coisa
 Converter de uma lista para componentes react
 Vai ser Map o tempo todo
+
+https://unsplash.com
+
+React.useState é utilizado o tempo todo.
