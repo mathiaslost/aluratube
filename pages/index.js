@@ -29,25 +29,7 @@ function HomePage() {
 
 export default HomePage
 
-const StyledBanner = styled.div`
-  background-color: blue;
-  background-image: url(${({bg}) => bg});
-  /* background-image: url(${config.banner}); */
-  height: 230px;
-`;
-const StyledHeader = styled.div`
-  .profile-picture {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-  }
-  .user-info {
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    padding: 16px 32px;
-    gap: 16px;
-  }
+const StyledBanner = styled.section`
   .banner {
     height: 400px;
     display: flex;
@@ -83,15 +65,38 @@ const StyledHeader = styled.div`
     }
   }
 `;
+
+// const StyledBanner = styled.div`
+//   background-color: blue;
+//   background-image: url(${({bg}) => bg});
+//   /* background-image: url(${config.banner}); */
+//   height: 230px;
+// `;
+
+const StyledHeader = styled.div`
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    padding: 16px 32px;
+    gap: 16px;
+  }
+`;
 function Header() {
   return (
     <StyledHeader>
-      <StyledBanner bg={config.banner} />
-      {/* <section>
+      {/* <StyledBanner bg={config.banner} /> */}
+      <StyledBanner>
         <div className="banner">
           <img src={config.banner} />
         </div>
-      </section> */}
+      </StyledBanner>
+
       <section className="user-info">
         <img className="profile-picture" src={`https://github.com/${config.github}.png`} />
         <div>
