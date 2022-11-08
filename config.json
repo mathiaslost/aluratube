@@ -130,5 +130,27 @@
                 "thumb": "https://img.youtube.com/vi/0JWMVc1CqpA/hqdefault.jpg"
             }
         ]
+    },
+    "favourites": {
+        "user1": {
+            "name": "@mathiaslost",
+            "gitpic": "mathiaslost",
+            "url": "https://github.com/mathiaslost"
+        },
+        "user2": {
+            "name": "@omariosouto",
+            "gitpic": "omariosouto",
+            "url": "https://github.com/omariosouto"
+        },
+        "user3": {
+            "name": "@peas",
+            "gitpic": "peas",
+            "url": "https://github.com/peas"
+        },
+        "user4": {
+            "name": "@lucastaborda99",
+            "gitpic": "lucastaborda99",
+            "url": "https://github.com/lucastaborda99"
+        }
     }
 }

@@ -15,9 +15,8 @@ function HomePage() {
       <div style={estilosDaHomePage}>
       <Menu />
       <Header />
-      <Timeline playlists={config.playlists}>
-        Conteúdo
-      </Timeline>
+      <Timeline playlists={config.playlists} />
+      <Favourites params={config.favourites} />
     </div>    
     </>
   );
@@ -104,8 +103,6 @@ function Timeline(propriedades) {
     <StyledTimeline>
       {playlistNames.map((playlistName) => {
         const videos = propriedades.playlists[playlistName];
-        console.log(playlistName);
-        console.log(videos);
           return (
             <section>
               <h2>{playlistName}</h2>
@@ -125,5 +122,54 @@ function Timeline(propriedades) {
           )
       })}
     </StyledTimeline>
+  )
+}
+
+function Favourites(props) {
+  const StyledFavourites = styled.div`
+    .user-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      padding: 15px;
+    }
+    .fav-info {
+      display: flex;
+    }
+    section {
+      padding: 16px 32px;
+    }
+    span {
+      display: flex;
+      justify-content: center;
+    }
+    .float-container {
+      float: left;
+    }
+    a {
+      text-decoration: none;
+    }
+  `
+  const favs = Object.keys(props.params);
+
+  return (
+    <StyledFavourites>
+      <section>
+        <h2>AluraTubes Favoritos</h2>
+        <div>
+          {favs.map((fav) => {
+            const user = props.params[fav];
+            return (
+              <div className="float-container">
+                <a href={user.url}>
+                  <img className="user-pic" src={`https://github.com/${user.gitpic}.png`} />
+                  <span>{user.name}</span>
+                </a>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+    </StyledFavourites>
   )
 }
