@@ -145,9 +145,16 @@ function Favourites(props) {
     }
     .float-container {
       float: left;
+      overflow: hidden;
+      // display: grid;
+      // grid-auto-flow: column;
+      // grid-auto-columns: minmax(200px,1fr);
+      // overflow-x: scroll;
+      // scroll-snap-type: x mandatory;
     }
     a {
       text-decoration: none;
+      overflow-x: scroll;
     }
   `
   const favs = Object.keys(props.params);
