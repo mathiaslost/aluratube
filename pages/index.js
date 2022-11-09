@@ -8,7 +8,7 @@ import { CSSReset } from "../src/components/CSSReset";
 
 import Home, { StyledHome } from "../src/components/Home";
 
-import styled from "styled-components";
+// import styled from "styled-components";
 
 function HomePage() {
   // const estilosDaHomePage = {
@@ -34,6 +34,3 @@ function HomePage() {
 }
 
 export default HomePage
-
-
-
