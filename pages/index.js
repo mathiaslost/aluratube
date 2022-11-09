@@ -152,25 +152,51 @@ const StyledFavourites = styled.div`
   .fav-info {
     display: flex;
   }
-  section {
-    padding: 16px 32px;
-  }
   span {
     display: flex;
     justify-content: center;
   }
-  .float-container {
+  /* .float-container {
     float: left;
     overflow: hidden;
-    // display: grid;
-    // grid-auto-flow: column;
-    // grid-auto-columns: minmax(200px,1fr);
-    // overflow-x: scroll;
-    // scroll-snap-type: x mandatory;
-  }
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(200px,1fr);
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  } */
   a {
     text-decoration: none;
-    /* overflow-x: scroll; */
+  }
+  h2 {
+    padding: 16px 32px;
+  }
+  section {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    padding: 16px 32px;
+    #container {
+      width: calc(100vw - 16px * 6);
+      display: grid;
+      grid-gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(150px, 1fr);
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      a {
+        scroll-snap-align: start;
+        overflow: hidden;
+        span {
+          padding-top: 8px;
+          display: block;
+          padding-right: 24px;
+          text-align: center;
+          color: ${({ theme }) => theme.textColorBase || "#222222"};
+        }
+      }
+    }
   }
 `
 function Favourites(props) {
@@ -178,13 +204,13 @@ function Favourites(props) {
 
   return (
     <StyledFavourites>
+      <h2>AluraTubes Favoritos</h2>
       <section key={props}>
-        <h2>AluraTubes Favoritos</h2>
-        <div>
+        <div id="container">
           {favs.map((fav) => {
             const user = props.params[fav];
             return (
-              <div key={fav} className="float-container">
+              <div id="teste" key={fav}>
                 <a key={user.url} href={user.url}>
                   <img className="user-pic" src={`https://github.com/${user.gitpic}.png`} />
                   <span>{user.name}</span>
