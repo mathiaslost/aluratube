@@ -149,9 +149,6 @@ const StyledFavourites = styled.div`
     border-radius: 50%;
     padding: 15px;
   }
-  .fav-info {
-    display: flex;
-  }
   span {
     display: flex;
     justify-content: center;
@@ -177,7 +174,7 @@ const StyledFavourites = styled.div`
     overflow: hidden;
     padding: 16px 32px;
     #container {
-      width: calc(100vw - 16px * 6);
+      width: calc(100vw - 16px * 4);
       display: grid;
       grid-gap: 16px;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
