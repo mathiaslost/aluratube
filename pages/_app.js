@@ -22,7 +22,7 @@ const theme = {
 
 function ProviderWrapper(props) {
     return (
-        <ColorModeProvider initialMode="light">
+        <ColorModeProvider initialMode="dark">
             {props.children}
         </ColorModeProvider>
     )
@@ -37,7 +37,6 @@ function MyApp({ Component, pageProps }) {
     // };
 
     const contexto = React.useContext(ColorModeContext);
-    console.log(contexto.mode);
 
     return (
         <>
