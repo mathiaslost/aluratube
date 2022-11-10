@@ -1,6 +1,6 @@
 import React from "react";
-import { ColorModeContext } from "../src/components/Menu/components/ColorMode";
 import styled from "styled-components";
+import { ColorModeContext } from "../src/components/Menu/components/ColorMode";
 
 export const StyledVideo = styled.div`
     margin: 0 auto;
@@ -18,7 +18,6 @@ export const StyledVideo = styled.div`
 
 export default function VideosPage(props) {
     const contexto = React.useContext(ColorModeContext);
-    // console.log(props);
     return (
         <StyledVideo>
             <h2>Bem vindo à página de vídeos.</h2>

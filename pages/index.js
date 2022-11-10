@@ -4,9 +4,7 @@ import Menu from "../src/components/Menu";
 import Header from "../src/components/Header";
 import Timeline from "../src/components/Timeline";
 import Favourites from "../src/components/Favourites";
-
 import Home, { StyledHome } from "../src/components/Home";
-
 // import styled from "styled-components";
 
 function HomePage() {

@@ -34,7 +34,6 @@ export default function RegisterVideo() {
         - Precisamos ter um onSubmit do form
         - limpar o formulário após o submit
     */
-
     return (
         <StyledRegisterVideo>
             <button className="add-video" onClick={() => setFormVisivel(true)}>
