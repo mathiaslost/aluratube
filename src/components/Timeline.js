@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import VideosPage from "../../pages/video";
 
 export const StyledTimeline = styled.div`
   flex: 1;
@@ -66,6 +67,7 @@ export default function Timeline({ searchValue, ...props }) {
                 .map((video) => {
                   return (
                     <a key={video.url} href={video.url}>
+                    {/* <a key={video.url} onClick={ () => { console.log("Aqui mudaria a página."); }}> */}
                       <img src={video.thumb} />
                       <span>
                         {video.title}

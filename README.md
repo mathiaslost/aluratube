@@ -20,3 +20,8 @@ desenvolvimento Full-Stack.
 Com o desenvolvimento deste projeto ganhei grande experiência com o desenvolvimento
 Front-End, apesar de já conhecer bastante sobre o assunto, adiquiri experiência em novas
 ferramentas, ganhei autonomia para desenvolver aplicações React.
+
+## Como está o projeto?
+- '_App.js': Carrega o setup base do projeto
+    - Aqui vão ficar os Providers de informação do projeto.
+    - CSSReset
