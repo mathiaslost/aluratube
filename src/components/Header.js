@@ -39,19 +39,20 @@ export const StyledBanner = styled.section`
 // `;
 
 export const StyledHeader = styled.div`
-.profile-picture {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-.user-info {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  padding: 16px 32px;
-  gap: 16px;
-}
-`;
+  background-color: ${({ theme }) => theme.backgroundLevel1};
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    padding: 16px 32px;
+    gap: 16px;
+  }
+  `;
 
 export default function Header({props}) {
   return (
