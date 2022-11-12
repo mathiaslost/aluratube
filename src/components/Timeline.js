@@ -48,6 +48,7 @@ export const StyledTimeline = styled.div`
 
 export default function Timeline({ searchValue, ...props }) {
   const playlistNames = Object.keys(props.playlists);
+  playlistNames.sort();
   // Statement
   // Retorno por expressão
   return (

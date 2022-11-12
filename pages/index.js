@@ -15,7 +15,7 @@ function HomePage() {
   // const playlists = {
   //   "clipes": [],
   // };
-  const [playlists, setPlaylists] = React.useState({ clipes: [] });
+  const [playlists, setPlaylists] = React.useState({ });
 
   React.useEffect(() => {
     service.getAllVideos()
@@ -29,7 +29,7 @@ function HomePage() {
       });
   }, []);
 
-
+  console.log(playlists);
 
   return (
     <>
