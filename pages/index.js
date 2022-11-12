@@ -5,10 +5,34 @@ import Header from "../src/components/Header";
 import Timeline from "../src/components/Timeline";
 import Favourites from "../src/components/Favourites";
 import Home, { StyledHome } from "../src/components/Home";
+import { createClient } from "@supabase/supabase-js";
+import { videoService } from "../src/services/videoService";
 // import styled from "styled-components";
 
 function HomePage() {
+  const service = videoService();
   const [valorDaBusca, setValorDoFiltro] = React.useState("");
+  // const playlists = {
+  //   "clipes": [],
+  // };
+  const [playlists, setPlaylists] = React.useState({ clipes: [] });
+
+  React.useEffect(() => {
+    console.log("useEffect");
+    service.getAllVideos()
+      .then((dados) => {
+        console.log(dados.data);
+        const novasPlaylists = { ...playlists };
+        dados.data.forEach((video) => {
+          if (!novasPlaylists[video.playlist]) novasPlaylists[video.playlist] = [];
+          novasPlaylists[video.playlist].push(video);
+        })
+        setPlaylists(novasPlaylists);
+        console.log(playlists);
+      });
+  }, []);
+
+
 
   return (
     <>
@@ -17,7 +41,7 @@ function HomePage() {
         {/* Prop Drilling */}
         <Menu valorDoFiltro={valorDaBusca} setValorDoFiltro={setValorDoFiltro} />
         <Header props={config} />
-        <Timeline searchValue={valorDaBusca} playlists={config.playlists}>
+        <Timeline searchValue={valorDaBusca} playlists={playlists}>
           Conteúdo
         </Timeline>
         <Favourites params={config.favourites} />

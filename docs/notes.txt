@@ -13,3 +13,7 @@ Vai ser Map o tempo todo
 https://unsplash.com
 
 React.useState é utilizado o tempo todo.
+
+npm install @supabase/supabase-js
+
+tab9 ai pair programming
