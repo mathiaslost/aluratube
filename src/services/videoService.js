@@ -11,3 +11,29 @@ export function videoService() {
         }
     }
 }
+
+/* Realizava o insert de todos os vídeos do json no supabase.
+insertFromJson(playlists) {
+    const playlistNames = Object.keys(playlists);
+    
+    playlistNames.map((playlistName) => {
+        const videos = playlists[playlistName];
+        videos.map((video) => {
+
+            supabase.from("video").insert({
+                title: video.title,
+                url: video.url,
+                thumb: video.thumb,
+                playlist: playlistName
+            })
+            .then((oqueveio) => {
+                // console.log(oqueveio);
+            })
+            .catch((err) => {
+                // console.log(err);
+            })
+
+        });
+    });
+}
+*/

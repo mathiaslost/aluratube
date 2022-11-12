@@ -133,21 +133,26 @@
     },
     "favourites": {
         "user1": {
-            "name": "@mathiaslost",
+            "name": "@Mathiaslost",
             "gitpic": "mathiaslost",
             "url": "https://github.com/mathiaslost"
         },
         "user2": {
-            "name": "@omariosouto",
+            "name": "@MrAbade",
+            "gitpic": "mrabade",
+            "url": "https://github.com/mrabade"
+        },
+        "user3": {
+            "name": "@Omariosouto",
             "gitpic": "omariosouto",
             "url": "https://github.com/omariosouto"
         },
-        "user3": {
+        "user4": {
             "name": "@peas",
             "gitpic": "peas",
             "url": "https://github.com/peas"
         },
-        "user4": {
+        "user5": {
             "name": "@lucastaborda99",
             "gitpic": "lucastaborda99",
             "url": "https://github.com/lucastaborda99"

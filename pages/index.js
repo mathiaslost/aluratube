@@ -18,17 +18,14 @@ function HomePage() {
   const [playlists, setPlaylists] = React.useState({ clipes: [] });
 
   React.useEffect(() => {
-    console.log("useEffect");
     service.getAllVideos()
       .then((dados) => {
-        console.log(dados.data);
         const novasPlaylists = { ...playlists };
         dados.data.forEach((video) => {
           if (!novasPlaylists[video.playlist]) novasPlaylists[video.playlist] = [];
           novasPlaylists[video.playlist].push(video);
         })
         setPlaylists(novasPlaylists);
-        console.log(playlists);
       });
   }, []);
 

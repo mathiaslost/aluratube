@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import React from "react";
+import { videoService } from "../../services/videoService";
 import { StyledRegisterVideo } from "./styles";
 
 // get youtube thumbnail from video url
@@ -34,11 +35,12 @@ const supabase = createClient(PROJECT_URL, PUBLIC_KEY);
 export default function RegisterVideo() {
     const formCadastro = useForm({
         // initialValues: { titulo: "Teste", url: "https://youtube.com/..."}
-        initialValues: { titulo: "Teste", url: "https://www.youtube.com/watch?v=1G4isv_Fylg"}
+        initialValues: { titulo: "", url: "", playlist: ""}
     });
     const [formVisivel, setFormVisivel] = React.useState(false);
+    const service = videoService();
 
-    console.log(supabase.from("video").insert());
+    // console.log(supabase.from("video").insert());
 
     /* O que precisamos para o form funcionar?
         - título
@@ -60,18 +62,21 @@ export default function RegisterVideo() {
                         // Exemplo: elemento <a> não será redirecinado
                         e.preventDefault();
 
+                        // Realizava a inserção de todos os videos do json
+                        // --> service.insertFromJson(config.playlists);
+
                         // Contrato entre o nosso Front e o backend
                         supabase.from("video").insert({
                             title: formCadastro.values.titulo,
                             url: formCadastro.values.url,
                             thumb: getThumbnail(formCadastro.values.url),
-                            playlist: "clipes"
+                            playlist: formCadastro.values.playlist
                         })
                         .then((oqueveio) => {
-                            console.log(oqueveio);
+                            // console.log(oqueveio);
                         })
                         .catch((err) => {
-                            console.log(err);
+                            // console.log(err);
                         })
 
                         setFormVisivel(false);
@@ -82,7 +87,7 @@ export default function RegisterVideo() {
                                 X
                             </button>
                             <input 
-                                placeholder="Título do vídeo"
+                                placeholder="Título do Vídeo"
                                 name="titulo"
                                 value={formCadastro.values.titulo}
                                 onChange={formCadastro.handleChange}></input>
@@ -90,6 +95,11 @@ export default function RegisterVideo() {
                                 placeholder="URL"
                                 name="url"
                                 value={formCadastro.values.url}
+                                onChange={formCadastro.handleChange}></input>
+                            <input
+                                placeholder="Nome da Playlist"
+                                name="playlist"
+                                value={formCadastro.values.playlist}
                                 onChange={formCadastro.handleChange}></input>
                             <button type="submit">
                                 Cadastrar
